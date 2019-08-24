@@ -1,0 +1,32 @@
+{
+    "name":"purgeAliyunCDN",
+    "version":"0.0.1",
+    "author":[
+        "xwbx"
+    ],
+    "url":"https://github.com/mooncellwiki/extension-aliyunCDN",
+    "descriptionmsg":"purgeAliyunCDN",
+    "license-name":"MIT",
+    "type":"specialpage",
+    "GroupPermissions":{
+        "sysop":{
+            "replacetext":true
+        }
+    },
+    "AutoloadClasses":{
+        "SpecialPurgeAliyunCDN":"src/SpecialPurgeAliyunCDN.php"
+    },
+    "SpecialPages":{
+        "PurgeAliyunCDN":"SpecialPurgeAliyunCDN"
+    },
+    "AvailableRights":[
+        "purgeCDN"
+    ],
+    "MessagesDirs":{
+        "PurgeAliyunCDN":[
+            "i18n"
+        ]
+    },
+    "mainfest_version":2
+    
+}
