@@ -1,15 +1,13 @@
-下载 解压 塞到extensions里  
-在 PurgeAliyunCDN目录下 运行  
 ```
-php composer.phar install
-```
-或
-```
+cd extensions/
+git clone https://github.com/mooncellwiki/PurgeAliyunCDN.git
+cd PurgeAliyunCDN
 composer install  
 ```
-LocalSetting.php中加入  
+在LocalSetting.php中加入  
 ```php
 wfLoadExtension( 'PurgeAliyunCDN' );
 $wgAliyunAccessSecret="";//阿里云AccessKey Secret
 $wgAliyunAccessKeyId="";//阿里云AccessKey ID
+$wgAliyunDomain="";//要刷新的域名
 ```
