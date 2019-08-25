@@ -1,0 +1,14 @@
+{
+    "purge_aliyun_cdn":"刷新阿里云CDN",
+    "specialpages-group-CDN":"CDN",
+    "cdn-refresh-type":"刷新类型",
+    "cdn-refresh-url":"URL",
+    "cdn-refresh-dir":"目录",
+    "cdn-refresh-limit":"每日URL刷新上限<span style='color: green;'>$1</span>,目录刷新上限<span style='color: green;'>$2</span>,<br/>剩余URL刷新次数<span style='color: green;'>$3</span>,剩余目录刷新次数<span style='color: green;'>$4</span>。刷新任务生效时间大约为5分钟。",
+    "cdn-refresh-submit":"提交",
+    "action-purgeCDN":"刷新CDN",
+    "cdn-require-AccessKeyId":"缺少阿里云AccessKeyId",
+    "cdn-require-AccessSecret": "缺少阿里云AccessSecret",
+    "cdn-send-request-success":"已成功发送请求",
+    "cdn_purge_log":"查看操作记录"
+}
