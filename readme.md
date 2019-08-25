@@ -1,7 +1,7 @@
 ```
 cd extensions/
 git clone https://github.com/mooncellwiki/PurgeAliyunCDN.git
-cd PurgeAliyunCDN
+cd PurgeAliyunCDN/
 composer install  
 ```
 在LocalSetting.php中加入  
