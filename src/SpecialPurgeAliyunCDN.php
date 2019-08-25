@@ -75,6 +75,7 @@ class SpecialPurgeAliyunCDN extends SpecialPage{
             ->setSubmitTextMsg('cdn-refresh-submit')
             ->setSubmitCallback([$this,'onSubmit'])
             ->showAlways();
+        $output->addModules('ext.RefreshCDNCheck');
     }
     public function onSubmit(array $values){
         //return $values['refresh-type'].'<br/>'.$values['refresh-url'];

@@ -1,6 +1,6 @@
 {
     "name":"purgeAliyunCDN",
-    "version":"0.0.3",
+    "version":"0.0.4",
     "author":[
         "xwbx"
     ],
@@ -31,6 +31,17 @@
     },
     "ExtensionMessagesFiles":{
         "PurgeAliyunCDNAlias":"PurgeAliyunCDN.i18n.alias.php"
+    },
+    "ResourceModules": {
+        "ext.RefreshCDNCheck": {
+            "scripts": [
+                "ext.RefreshCDN.js"
+            ]
+        }
+    },
+    "ResourceFileModulePaths": {
+            "localBasePath": "resources",
+            "remoteExtPath": "PurgeAliyunCDN/resources"
     },
     "manifest_version":2
     
