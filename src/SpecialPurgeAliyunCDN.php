@@ -30,6 +30,7 @@ class SpecialPurgeAliyunCDN extends SpecialPage{
             $output->addHTML($this->msg('cdn-require-AccessSecret')->plain());
             return false;
         }
+        
         AlibabaCloud::accessKeyClient($wgAliyunAccessKeyId, $wgAliyunAccessSecret)
             ->regionId('cn-hangzhou') // replace regionId as you need
             ->asDefaultClient();
@@ -93,7 +94,11 @@ class SpecialPurgeAliyunCDN extends SpecialPage{
                                                     ],
                                                   ])
                                         ->request();
-            return 'cdn-send-request-success';
+            if(array_key_exists("RefreshTaskId",$result->toArray())&&array_key_exists("RequestId",$result->toArray())){
+                return 'cdn-send-request-success' ;
+            }else{
+                return $result->toArray();
+            }
         } catch (ClientException $e) {
             return $e->getErrorMessage() . PHP_EOL;
         } catch (ServerException $e) {
