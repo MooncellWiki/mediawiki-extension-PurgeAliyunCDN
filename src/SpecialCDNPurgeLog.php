@@ -75,7 +75,7 @@ class SpecialCDNPurgeLog extends SpecialPage{
                           ->request();
             $rows='';
             foreach ($UrlResult->toArray()['Tasks']['CDNTask'] as $value) {
-                $rows=$rows.'<tr><td>'.urldecode($value['ObjectPath']).'</td><td>'.strtotime($value['CreationTime']).'</td><td>'.$value['Status'].'</td><td>'.$value['Process'].'</td></tr>';
+                $rows=$rows.'<tr><td>'.urldecode($value['ObjectPath']).'</td><td>'.date('Y-m-d H:i:s',strtotime($value['CreationTime'])).'</td><td>'.$value['Status'].'</td><td>'.$value['Process'].'</td></tr>';
             }
             $output->addHTML('<h1>'.wfMessage('cdn-refresh-dir').'</h1><table class="wikitable"><tbody><tr>'.wfMessage('cdn-table-head')->text().'</tr>'.$rows.'</tbody></table>');
         } catch (ClientException $e) {
