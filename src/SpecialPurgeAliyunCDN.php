@@ -31,13 +31,14 @@ class SpecialPurgeAliyunCDN extends SpecialPage{
             return false;
         }
         
-        AlibabaCloud::accessKeyClient($wgAliyunAccessKeyId, $wgAliyunAccessSecret)
-            ->regionId('cn-hangzhou') // replace regionId as you need
-            ->asDefaultClient();
+        if(!AlibabaCloud::has('default')){
+        	AlibabaCloud::accessKeyClient($wgAliyunAccessKeyId, $wgAliyunAccessSecret)
+            	->regionId('cn-hangzhou') // replace regionId as you need
+            	->asDefaultClient();
+        }
         try {
             $result = AlibabaCloud::rpc()
                                   ->product('Cdn')
-                                  ->scheme('https')
                                   ->version('2018-05-10')
                                   ->action('DescribeRefreshQuota')
                                   ->method('POST')
@@ -82,7 +83,6 @@ class SpecialPurgeAliyunCDN extends SpecialPage{
         try {
             $result = AlibabaCloud::rpc()
                                         ->product('Cdn')
-                                        ->scheme('https') // https | http
                                         ->version('2018-05-10')
                                         ->action('RefreshObjectCaches')
                                         ->method('POST')

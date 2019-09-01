@@ -30,15 +30,15 @@ class SpecialCDNPurgeLog extends SpecialPage{
             $output->addHTML($this->msg('cdn-require-domain')->plain());
             return false;
         }
-        AlibabaCloud::accessKeyClient($wgAliyunAccessKeyId, $wgAliyunAccessSecret)
-                        ->regionId('cn-hangzhou') // replace regionId as you need
-                        ->asDefaultClient();
-
+        if(!AlibabaCloud::has('default')){
+        	AlibabaCloud::accessKeyClient($wgAliyunAccessKeyId, $wgAliyunAccessSecret)
+            	->regionId('cn-hangzhou') // replace regionId as you need
+            	->asDefaultClient();
+        }
         try {
             $result='';
             $fileResult = AlibabaCloud::rpc()
                           ->product('Cdn')
-                          //->scheme('https') // https | http
                           ->version('2018-05-10')
                           ->action('DescribeRefreshTasks')
                           ->method('POST')
@@ -60,7 +60,6 @@ class SpecialCDNPurgeLog extends SpecialPage{
             //$output->addHTML(json_encode($fileResult->toArray()));
             $UrlResult = AlibabaCloud::rpc()
                           ->product('Cdn')
-                          //->scheme('https') // https | http
                           ->version('2018-05-10')
                           ->action('DescribeRefreshTasks')
                           ->method('POST')
