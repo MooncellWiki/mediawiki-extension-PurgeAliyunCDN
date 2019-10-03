@@ -6,7 +6,7 @@ use AlibabaCloud\Client\Exception\ClientException;
 use AlibabaCloud\Client\Exception\ServerException;
 class SpecialCDNPurgeLog extends SpecialPage{
     function __construct(){
-        parent::__construct('cdn_purge_log','purgeCDN');
+        parent::__construct('CDNPurgeLog','purgeCDN');
     }
     function getGroupName() {
         return 'CDN';
