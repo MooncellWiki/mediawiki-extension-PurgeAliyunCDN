@@ -1,5 +1,5 @@
 {
-    "purge_aliyun_cdn":"刷新阿里云CDN",
+    "purgealiyuncdn":"刷新阿里云CDN",
     "specialpages-group-CDN":"CDN",
     "cdn-refresh-type":"刷新类型",
     "cdn-refresh-url":"刷新URL",
@@ -11,6 +11,6 @@
     "cdn-require-AccessSecret": "缺少阿里云AccessSecret",
     "cdn-require-domain": "缺少查询的域名",
     "cdn-send-request-success":"已成功发送请求,查看[[Special:查看操作记录]]",
-    "cdn_purge_log":"查看操作记录",
+    "cdnpurgelog":"查看操作记录",
     "cdn-table-head":"<th>操作内容</th><th>操作时间</th><th>操作状态</th><th>操作进度</th>"
 }

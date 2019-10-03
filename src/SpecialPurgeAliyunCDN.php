@@ -7,7 +7,7 @@ use AlibabaCloud\Client\Exception\ServerException;
 
 class SpecialPurgeAliyunCDN extends SpecialPage{
     function __construct(){
-        parent::__construct('purge_aliyun_cdn','purgeCDN');
+        parent::__construct('PurgeAliyunCDN','purgeCDN');
     }
     function getGroupName() {
         return 'CDN';
