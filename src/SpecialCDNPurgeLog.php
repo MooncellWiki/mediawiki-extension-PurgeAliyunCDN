@@ -47,7 +47,7 @@ class SpecialCDNPurgeLog extends SpecialPage{
                                         'query' => [
                                           'RegionId' => "default",
                                           'ObjectType' => "file",
-                                          'DomainName' => $wgAliyunDomain,
+                                          //'DomainName' => $wgAliyunDomain,
                                         ],
                                     ])
                           ->request();
@@ -68,7 +68,7 @@ class SpecialCDNPurgeLog extends SpecialPage{
                                         'query' => [
                                           'RegionId' => "default",
                                           'ObjectType' => "directory",
-                                          'DomainName' => $wgAliyunDomain,
+                                          //'DomainName' => $wgAliyunDomain,
                                         ],
                                     ])
                           ->request();
