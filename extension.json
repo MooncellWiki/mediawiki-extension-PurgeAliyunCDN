@@ -1,10 +1,10 @@
 {
-    "name":"purgeAliyunCDN",
-    "version":"0.0.6",
+    "name":"PurgeAliyunCDN",
+    "version":"1.0.0",
     "author":[
         "xwbx"
     ],
-    "url":"https://github.com/mooncellwiki/extension-aliyunCDN",
+    "url":"https://github.com/MooncellWiki/PurgeAliyunCDN",
     "descriptionmsg":"purgealiyuncdn",
     "license-name":"MIT",
     "type":"specialpage",
@@ -13,13 +13,18 @@
             "purgeCDN":true
         }
     },
+    "Hooks": {
+		"UploadVerifyFile": "PurgeAliyunCDN\\Hooks"
+	},
     "AutoloadClasses":{
-        "SpecialPurgeAliyunCDN":"src/SpecialPurgeAliyunCDN.php",
-        "SpecialCDNPurgeLog":"src/SpecialCDNPurgeLog.php"
+        "PurgeAliyunCDN\\SpecialPurgeCDN":"special/SpecialPurgeCDN.php",
+        "PurgeAliyunCDN\\SpecialPurgeCDNLog":"special/SpecialPurgeCDNLog.php",
+        "PurgeAliyunCDN\\Utils":"includes/Utils.php",
+        "PurgeAliyunCDN\\Hooks": "includes/Hooks.php"
     },
     "SpecialPages":{
-        "PurgeAliyunCDN":"SpecialPurgeAliyunCDN",
-        "CDNPurgeLog":"SpecialCDNPurgeLog"
+        "PurgeAliyunCDN":"PurgeAliyunCDN\\SpecialPurgeCDN",
+        "CDNPurgeLog":"PurgeAliyunCDN\\SpecialPurgeCDNLog"
     },
     "AvailableRights":[
         "purgeCDN"
