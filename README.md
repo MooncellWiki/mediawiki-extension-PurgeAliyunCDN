@@ -1,7 +1,8 @@
+1. [配置阿里云函数计算](https://github.com/MooncellWiki/PurgeAliyunCDN-fc)
+2. 安装拓展
 ```
 cd extensions/
 git clone https://github.com/mooncellwiki/PurgeAliyunCDN.git
-cd PurgeAliyunCDN/
 ```
 在LocalSetting.php中加入  
 ```php
