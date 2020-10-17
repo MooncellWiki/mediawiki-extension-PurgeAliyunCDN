@@ -3,7 +3,7 @@ namespace PurgeAliyunCDN;
 
 class Hooks {
     
-	public static function onUploadVerifyFile( $upload, $mime, &$error ) {
+	public static function onUploadVerifyUpload( \UploadBase $upload, \User $user, $props, $comment, $pageText, &$error ) {
 	    global $wgAliyunCloudFuncUrl,$wgAliyunCloudFuncToken,$wgServer;
 	    
 	    $url = $wgServer.$upload->getLocalFile()->url;
@@ -20,6 +20,12 @@ class Hooks {
                 'path' => $path
             );
         $result = Utils::PostJson($wgAliyunCloudFuncUrl, $payload);
+        
+        $logEntry = new \ManualLogEntry('purgecdn', 'purge');
+		$logEntry->setPerformer($user);
+		$logEntry->setTarget($upload->getTitle());
+		$logId = $logEntry->insert();
+		$logEntry->publish($logId);
 
 		return true;
 	}

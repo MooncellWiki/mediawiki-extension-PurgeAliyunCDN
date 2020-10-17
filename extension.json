@@ -37,6 +37,12 @@
     "ExtensionMessagesFiles":{
         "purgeAliyunCDNAlias":"PurgeAliyunCDN.i18n.alias.php"
     },
+    "LogTypes": [
+		"purgecdn"
+	],
+	"LogActionsHandlers": {
+		"purgecdn/purge": "LogFormatter"
+	},
     "ResourceModules": {
         "ext.RefreshCDNCheck": {
             "scripts": [
