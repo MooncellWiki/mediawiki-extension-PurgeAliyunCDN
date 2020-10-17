@@ -14,7 +14,7 @@
         }
     },
     "Hooks": {
-		"UploadVerifyFile": "PurgeAliyunCDN\\Hooks"
+		"UploadVerifyUpload": "PurgeAliyunCDN\\Hooks::onUploadVerifyUpload"
 	},
     "AutoloadClasses":{
         "PurgeAliyunCDN\\SpecialPurgeCDN":"special/SpecialPurgeCDN.php",
