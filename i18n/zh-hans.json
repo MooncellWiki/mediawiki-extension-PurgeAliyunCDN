@@ -11,7 +11,7 @@
     "action-purgeCDN":"刷新CDN",
     "log-name-purgecdn": "阿里云CDN刷新日志",
     "log-description-purgecdn": "这个页面显示了阿里云CDN的刷新任务。",
-    "logentry-purgecdn-purge": "$1通过上传文件触发了$3的刷新任务",
+    "logentry-purgecdn-purge": "$1通过覆盖上传文件触发了$3的刷新任务",
     "cdn-send-request-success":"已成功发送请求,查看[[Special:查看操作记录]]",
     "cdnpurgelog":"查看操作记录",
     "cdn-table-head":"<th>操作内容</th><th>操作时间</th><th>操作状态</th><th>操作进度</th>"

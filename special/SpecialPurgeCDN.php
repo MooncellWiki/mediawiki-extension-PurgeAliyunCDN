@@ -70,12 +70,12 @@ class SpecialPurgeCDN extends \SpecialPage {
         global $wgAliyunCloudFuncUrl,$wgAliyunCloudFuncToken;
         
         $path = explode("\n",$values['refresh-url']);
-        $payload = array(
+        $payload = [
                 'token' => $wgAliyunCloudFuncToken,
                 'action' => 'purge',
                 'path' => $path
-            );
-        switch($values['refresh-type']){
+            ];
+        switch ($values['refresh-type']) {
         case 'File':
             $payload['isFolder'] = false;
             break;

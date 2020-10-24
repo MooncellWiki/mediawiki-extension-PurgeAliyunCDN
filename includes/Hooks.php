@@ -2,31 +2,30 @@
 namespace PurgeAliyunCDN;
 
 class Hooks {
-    
-	public static function onUploadVerifyUpload( \UploadBase $upload, \User $user, $props, $comment, $pageText, &$error ) {
-	    global $wgAliyunCloudFuncUrl,$wgAliyunCloudFuncToken,$wgServer;
-	    
-	    $url = $wgServer.$upload->getLocalFile()->url;
-	    $isExists = $upload->getLocalFile()->exists();
-        if($isExists != true) {
-            return true;
-        }
-        
-        $path = explode("\n",$url);
-        $payload = array(
-                'token' => $wgAliyunCloudFuncToken,
-                'action' => 'purge',
-                'isFolder' => false,
-                'path' => $path
-            );
-        $result = Utils::PostJson($wgAliyunCloudFuncUrl, $payload);
-        
-        $logEntry = new \ManualLogEntry('purgecdn', 'purge');
-		$logEntry->setPerformer($user);
-		$logEntry->setTarget($upload->getTitle());
-		$logId = $logEntry->insert();
-		$logEntry->publish($logId);
-
+	
+	public static function onUploadComplete( $image ) {
+		global $wgAliyunCloudFuncUrl,$wgAliyunCloudFuncToken,$wgServer;
+		
+		$history = $image->getLocalFile()->getHistory();
+		if (count($history) != 0) {
+			$url = wfExpandUrl($image->getLocalFile()->url);
+		
+			$path = [$url];
+			$payload = [
+					'token' => $wgAliyunCloudFuncToken,
+					'action' => 'purge',
+					'isFolder' => false,
+					'path' => $path
+				];
+			$result = Utils::PostJson($wgAliyunCloudFuncUrl, $payload);
+		
+			$logEntry = new \ManualLogEntry('purgecdn', 'purge');
+			$logEntry->setPerformer($user);
+			$logEntry->setTarget($upload->getTitle());
+			$logId = $logEntry->insert();
+			$logEntry->publish($logId);
+		}
+		
 		return true;
 	}
 	
