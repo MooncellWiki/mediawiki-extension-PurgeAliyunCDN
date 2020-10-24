@@ -18,7 +18,8 @@ class Hooks {
 					'path' => $path
 				];
 			$result = Utils::PostJson($wgAliyunCloudFuncUrl, $payload);
-		
+			
+			$user = $image->getLocalFile()->user;
 			$logEntry = new \ManualLogEntry('purgecdn', 'purge');
 			$logEntry->setPerformer($user);
 			$logEntry->setTarget($upload->getTitle());

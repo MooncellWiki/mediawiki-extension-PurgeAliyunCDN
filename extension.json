@@ -2,7 +2,8 @@
     "name":"PurgeAliyunCDN",
     "version":"1.0.0",
     "author":[
-        "xwbx"
+        "xwbx",
+        "StarHeartHunt"
     ],
     "url":"https://github.com/MooncellWiki/PurgeAliyunCDN",
     "descriptionmsg":"purgealiyuncdn",
