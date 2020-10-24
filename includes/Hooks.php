@@ -20,9 +20,11 @@ class Hooks {
 			$result = Utils::PostJson($wgAliyunCloudFuncUrl, $payload);
 			
 			$user = $image->getLocalFile()->user;
+			$title = $image->getLocalFile()->getTitle();
+			
 			$logEntry = new \ManualLogEntry('purgecdn', 'purge');
 			$logEntry->setPerformer($user);
-			$logEntry->setTarget($upload->getTitle());
+			$logEntry->setTarget($title);
 			$logId = $logEntry->insert();
 			$logEntry->publish($logId);
 		}
