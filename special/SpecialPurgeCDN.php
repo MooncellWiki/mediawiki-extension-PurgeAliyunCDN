@@ -2,12 +2,11 @@
 namespace PurgeAliyunCDN;
 
 use MediaWiki\MediaWikiServices;
-use PurgeAliyunCDN\Utils;
 
 class SpecialPurgeCDN extends \SpecialPage {
     
     function __construct(){
-        parent::__construct('PurgeAliyunCDN','purgeCDN');
+        parent::__construct('PurgeAliyunCDN','purge-aliyun-cdn');
     }
     
     function getGroupName() {
@@ -15,10 +14,10 @@ class SpecialPurgeCDN extends \SpecialPage {
     }
     
     function execute($par){
-        global $wgAliyunCloudFuncUrl,$wgAliyunCloudFuncToken;
+        global $wgAliyunCloudFuncUrl, $wgAliyunCloudFuncToken;
         
-        if (!$this->getUser()->isAllowed( 'purgeCDN' )) {
-			throw new PermissionsError('purgeCDN');
+        if (!$this->getUser()->isAllowed( 'purge-aliyun-cdn' )) {
+			throw new PermissionsError('purge-aliyun-cdn');
 		}
 		
         $output=$this->getOutput();
@@ -67,7 +66,7 @@ class SpecialPurgeCDN extends \SpecialPage {
     }
     
     public function onSubmit(array $values) {
-        global $wgAliyunCloudFuncUrl,$wgAliyunCloudFuncToken;
+        global $wgAliyunCloudFuncUrl, $wgAliyunCloudFuncToken;
         
         $path = explode("\n",$values['refresh-url']);
         $payload = [

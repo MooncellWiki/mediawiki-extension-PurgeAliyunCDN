@@ -1,5 +1,7 @@
 {
     "purgealiyuncdn":"刷新阿里云CDN",
+    "cdnpurgethumb":"刷新CDN缩略图缓存",
+    "aliyunpurgethumb":"刷新CDN",
     "specialpages-group-CDN":"CDN",
     "cdn-refresh-type":"刷新类型",
     "cdn-refresh-url":"刷新URL",
@@ -14,5 +16,6 @@
     "logentry-purgecdn-purge": "$1通过覆盖上传文件触发了$3的刷新任务",
     "cdn-send-request-success":"已成功发送请求,查看[[Special:查看操作记录]]",
     "cdnpurgelog":"查看操作记录",
-    "cdn-table-head":"<th>操作内容</th><th>操作时间</th><th>操作状态</th><th>操作进度</th>"
+    "cdn-table-head":"<th>操作内容</th><th>操作时间</th><th>操作状态</th><th>操作进度</th>",
+    "cdnpurgethumb-select-label":"选择图片"
 }

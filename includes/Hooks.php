@@ -4,7 +4,7 @@ namespace PurgeAliyunCDN;
 class Hooks {
 	
 	public static function onUploadComplete( $image ) {
-		global $wgAliyunCloudFuncUrl,$wgAliyunCloudFuncToken,$wgServer;
+		global $wgAliyunCloudFuncUrl, $wgAliyunCloudFuncToken, $wgServer;
 		
 		$history = $image->getLocalFile()->getHistory();
 		if (count($history) != 0) {
@@ -29,6 +29,22 @@ class Hooks {
 			$logEntry->publish($logId);
 		}
 		
+		return true;
+	}
+	
+	public static function onSkinTemplateNavigation_Universal(\SkinTemplate $skinTemplate, array &$links) {
+		$isAdmin = $skinTemplate->getUser()->isAllowed('purge-aliyun-cdn');
+		$title = $skinTemplate->getRelevantTitle();
+		
+		if ( $title->getNamespace() === NS_FILE && $isAdmin ) {
+			// add a new action
+			$links['actions']['aliyunpurgethumb'] = [
+				'id' => 'ca-aliyunpurgethumb',
+				'text' => wfMessage('aliyunpurgethumb')->text(),
+				'href' => \SpecialPage::getTitleFor('CDNPurgeThumb', $title->getPrefixedDBKey())->getLocalURL()
+			];
+		}
+
 		return true;
 	}
 	

@@ -6,7 +6,7 @@ use MediaWiki\MediaWikiServices;
 class SpecialPurgeCDNLog extends \SpecialPage {
     
     function __construct(){
-        parent::__construct('CDNPurgeLog','purgeCDN');
+        parent::__construct('CDNPurgeLog','purge-aliyun-cdn');
     }
     
     function getGroupName() {
@@ -14,10 +14,10 @@ class SpecialPurgeCDNLog extends \SpecialPage {
     }
     
     function execute($par){
-        global $wgAliyunCloudFuncUrl,$wgAliyunCloudFuncToken;
+        global $wgAliyunCloudFuncUrl, $wgAliyunCloudFuncToken;
         
-        if (!$this->getUser()->isAllowed( 'purgeCDN' ) ) {
-			throw new PermissionsError( 'purgeCDN' );
+        if (!$this->getUser()->isAllowed( 'purge-aliyun-cdn' ) ) {
+			throw new PermissionsError( 'purge-aliyun-cdn' );
 		}
 		
         $output=$this->getOutput();

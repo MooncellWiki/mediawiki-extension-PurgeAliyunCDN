@@ -1,6 +1,6 @@
 {
     "name":"PurgeAliyunCDN",
-    "version":"1.0.0",
+    "version":"1.1.0",
     "author":[
         "xwbx",
         "StarHeartHunt"
@@ -11,24 +11,27 @@
     "type":"specialpage",
     "GroupPermissions":{
         "sysop":{
-            "purgeCDN":true
+            "purge-aliyun-cdn":true
         }
     },
     "Hooks": {
-		"UploadComplete":"PurgeAliyunCDN\\Hooks::onUploadComplete"
+		"UploadComplete":"PurgeAliyunCDN\\Hooks::onUploadComplete",
+		"SkinTemplateNavigation::Universal":"PurgeAliyunCDN\\Hooks::onSkinTemplateNavigation_Universal"
 	},
     "AutoloadClasses":{
         "PurgeAliyunCDN\\SpecialPurgeCDN":"special/SpecialPurgeCDN.php",
         "PurgeAliyunCDN\\SpecialPurgeCDNLog":"special/SpecialPurgeCDNLog.php",
+        "PurgeAliyunCDN\\SpecialPurgeThumb":"special/SpecialPurgeThumb.php",
         "PurgeAliyunCDN\\Utils":"includes/Utils.php",
         "PurgeAliyunCDN\\Hooks": "includes/Hooks.php"
     },
     "SpecialPages":{
         "PurgeAliyunCDN":"PurgeAliyunCDN\\SpecialPurgeCDN",
-        "CDNPurgeLog":"PurgeAliyunCDN\\SpecialPurgeCDNLog"
+        "CDNPurgeLog":"PurgeAliyunCDN\\SpecialPurgeCDNLog",
+        "CDNPurgeThumb":"PurgeAliyunCDN\\SpecialPurgeThumb"
     },
     "AvailableRights":[
-        "purgeCDN"
+        "purge-aliyun-cdn"
     ],
     "MessagesDirs":{
         "purgeAliyunCDN":[
