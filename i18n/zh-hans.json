@@ -1,7 +1,7 @@
 {
     "purgealiyuncdn":"刷新阿里云CDN",
     "cdnpurgethumb":"刷新CDN缩略图缓存",
-    "aliyunpurgethumb":"刷新CDN",
+    "aliyunpurgethumb":"刷新CDN缩略图缓存",
     "specialpages-group-CDN":"CDN",
     "cdn-refresh-type":"刷新类型",
     "cdn-refresh-url":"刷新URL",
