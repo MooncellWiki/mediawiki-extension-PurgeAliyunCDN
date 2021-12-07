@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir ${{ steps.package.outputs.PROJECT_NAME }}
           cp -r i18n/ includes/ resources/ special/ extension.json PurgeAliyunCDN.i18n.alias.php README.md ${{ steps.package.outputs.PROJECT_NAME }}
-          tar -czvf ${{ steps.package.outputs.PKG_NAME }} Lazyload
+          tar -czvf ${{ steps.package.outputs.PKG_NAME }} ${{ steps.package.outputs.PROJECT_NAME }}
       - name: "Artifact upload: tarball"
         uses: actions/upload-artifact@master
         with:
