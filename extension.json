@@ -1,52 +1,52 @@
 {
-    "name":"PurgeAliyunCDN",
-    "version":"1.1.0",
-    "author":[
+    "name": "PurgeAliyunCDN",
+    "version": "1.1.0",
+    "author": [
         "xwbx",
         "StarHeartHunt"
     ],
-    "url":"https://github.com/MooncellWiki/PurgeAliyunCDN",
-    "descriptionmsg":"purgealiyuncdn",
-    "license-name":"MIT",
-    "type":"specialpage",
-    "GroupPermissions":{
-        "sysop":{
-            "purge-aliyun-cdn":true
+    "url": "https://github.com/MooncellWiki/PurgeAliyunCDN",
+    "descriptionmsg": "purgealiyuncdn",
+    "license-name": "MIT",
+    "type": "specialpage",
+    "GroupPermissions": {
+        "sysop": {
+            "purge-aliyun-cdn": true
         }
     },
     "Hooks": {
-		"UploadComplete":"PurgeAliyunCDN\\Hooks::onUploadComplete",
-		"SkinTemplateNavigation::Universal":"PurgeAliyunCDN\\Hooks::onSkinTemplateNavigation_Universal"
-	},
-    "AutoloadClasses":{
-        "PurgeAliyunCDN\\SpecialPurgeCDN":"special/SpecialPurgeCDN.php",
-        "PurgeAliyunCDN\\SpecialPurgeCDNLog":"special/SpecialPurgeCDNLog.php",
-        "PurgeAliyunCDN\\SpecialPurgeThumb":"special/SpecialPurgeThumb.php",
-        "PurgeAliyunCDN\\Utils":"includes/Utils.php",
+        "UploadComplete": "PurgeAliyunCDN\\Hooks::onUploadComplete",
+        "SkinTemplateNavigation::Universal": "PurgeAliyunCDN\\Hooks::onSkinTemplateNavigation_Universal"
+    },
+    "AutoloadClasses": {
+        "PurgeAliyunCDN\\SpecialPurgeCDN": "special/SpecialPurgeCDN.php",
+        "PurgeAliyunCDN\\SpecialPurgeCDNLog": "special/SpecialPurgeCDNLog.php",
+        "PurgeAliyunCDN\\SpecialPurgeThumb": "special/SpecialPurgeThumb.php",
+        "PurgeAliyunCDN\\Utils": "includes/Utils.php",
         "PurgeAliyunCDN\\Hooks": "includes/Hooks.php"
     },
-    "SpecialPages":{
-        "PurgeAliyunCDN":"PurgeAliyunCDN\\SpecialPurgeCDN",
-        "CDNPurgeLog":"PurgeAliyunCDN\\SpecialPurgeCDNLog",
-        "CDNPurgeThumb":"PurgeAliyunCDN\\SpecialPurgeThumb"
+    "SpecialPages": {
+        "PurgeAliyunCDN": "PurgeAliyunCDN\\SpecialPurgeCDN",
+        "CDNPurgeLog": "PurgeAliyunCDN\\SpecialPurgeCDNLog",
+        "CDNPurgeThumb": "PurgeAliyunCDN\\SpecialPurgeThumb"
     },
-    "AvailableRights":[
+    "AvailableRights": [
         "purge-aliyun-cdn"
     ],
-    "MessagesDirs":{
-        "purgeAliyunCDN":[
+    "MessagesDirs": {
+        "purgeAliyunCDN": [
             "i18n"
         ]
     },
-    "ExtensionMessagesFiles":{
-        "purgeAliyunCDNAlias":"PurgeAliyunCDN.i18n.alias.php"
+    "ExtensionMessagesFiles": {
+        "purgeAliyunCDNAlias": "PurgeAliyunCDN.i18n.alias.php"
     },
     "LogTypes": [
-		"purgecdn"
-	],
-	"LogActionsHandlers": {
-		"purgecdn/purge": "LogFormatter"
-	},
+        "purgecdn"
+    ],
+    "LogActionsHandlers": {
+        "purgecdn/purge": "LogFormatter"
+    },
     "ResourceModules": {
         "ext.RefreshCDNCheck": {
             "scripts": [
@@ -55,9 +55,8 @@
         }
     },
     "ResourceFileModulePaths": {
-            "localBasePath": "resources",
-            "remoteExtPath": "PurgeAliyunCDN/resources"
+        "localBasePath": "resources",
+        "remoteExtPath": "PurgeAliyunCDN/resources"
     },
-    "manifest_version":2
-    
+    "manifest_version": 2
 }
