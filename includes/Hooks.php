@@ -9,7 +9,7 @@ class Hooks {
 		$history = $image->getLocalFile()->getHistory();
 		if (count($history) != 0) {
 			$url = wfExpandUrl($image->getLocalFile()->url);
-		
+			//purge source
 			$path = [$url];
 			$payload = [
 					'token' => $wgAliyunCloudFuncToken,
@@ -18,6 +18,16 @@ class Hooks {
 					'path' => $path
 				];
 			$result = Utils::PostJson($wgAliyunCloudFuncUrl, $payload);
+			//purge thumb
+			$thumbUrl = str_replace("{$wgServer}/images", "{$wgServer}/images/thumb", $url);
+			$thumbPath = [$thumbUrl];
+			$thumbPayload = [
+					'token' => $wgAliyunCloudFuncToken,
+					'action' => 'purge',
+					'isFolder' => false,
+					'path' => $thumbPath
+				];
+			$result = Utils::PostJson($wgAliyunCloudFuncUrl, $thumbPayload);
 			
 			$user = $image->getLocalFile()->getUser('object');
 			$title = $image->getTitle();
