@@ -20,11 +20,12 @@ class Hooks {
 			$result = Utils::PostJson($wgAliyunCloudFuncUrl, $payload);
 			//purge thumb
 			$thumbUrl = str_replace("{$wgServer}/images", "{$wgServer}/images/thumb", $url);
+			$thumbUrl .= "/";
 			$thumbPath = [$thumbUrl];
 			$thumbPayload = [
 					'token' => $wgAliyunCloudFuncToken,
 					'action' => 'purge',
-					'isFolder' => false,
+					'isFolder' => true,
 					'path' => $thumbPath
 				];
 			$result = Utils::PostJson($wgAliyunCloudFuncUrl, $thumbPayload);
