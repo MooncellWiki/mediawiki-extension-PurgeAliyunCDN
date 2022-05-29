@@ -8,7 +8,7 @@ class Hooks {
 		
 		$history = $image->getLocalFile()->getHistory();
 		if (count($history) != 0) {
-			$url = wfExpandUrl($image->getLocalFile()->url);
+			$url = wfExpandUrl($image->getLocalFile()->url, PROTO_HTTPS);
 			//purge source
 			$path = [$url];
 			$payload = [
