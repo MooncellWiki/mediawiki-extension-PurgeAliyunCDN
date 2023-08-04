@@ -54,7 +54,7 @@ class SpecialPurgeCDN extends \SpecialPage {
             ],
             'refresh-url'=>[
                 'type'=>'textarea',
-                'label-raw'=>wfMessage( 'cdn-refresh-limit', $quota['UrlQuota'], $quota['DirQuota'], $quota['UrlRemain'], $quota['DirRemain'])->parse(),
+                'label-raw'=>wfMessage( 'cdn-refresh-limit', $quota['urlQuota'], $quota['dirQuota'], $quota['urlRemain'], $quota['dirRemain'])->parse(),
             ]
         ];
         $form = \HTMLForm::factory('ooui',$fields,$this->getContext());
