@@ -41,8 +41,8 @@ class SpecialPurgeCDNLog extends \SpecialPage {
             $fileResult = json_decode($result[1], true);
             
             $rows='';
-            foreach ($fileResult['Tasks']['CDNTask'] as $value) {
-                $rows=$rows.'<tr><td>'.urldecode($value['ObjectPath']).'</td><td>'.date('Y-m-d H:i:s',strtotime($value['CreationTime'])).'</td><td>'.$value['Status'].'</td><td>'.$value['Process'].'</td></tr>';
+            foreach ($fileResult['tasks']['CDNTask'] as $value) {
+                $rows=$rows.'<tr><td>'.urldecode($value['objectPath']).'</td><td>'.date('Y-m-d H:i:s',strtotime($value['creationTime'])).'</td><td>'.$value['status'].'</td><td>'.$value['process'].'</td></tr>';
             }
             $output->addHTML('<table class="wikitable"><tbody><tr>'.wfMessage('cdn-table-head')->text().'</tr>'.$rows.'</tbody></table>');
         } catch (\Throwable $e) {
