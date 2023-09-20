@@ -30,7 +30,7 @@ class Hooks {
 				];
 			$result = Utils::PostJson($wgAliyunCloudFuncUrl, $thumbPayload);
 			
-			$user = $image->getLocalFile()->getUploader()->getName();
+			$user = $image->getLocalFile()->getUploader();
 			$title = $image->getTitle();
 			
 			$logEntry = new \ManualLogEntry('purgecdn', 'purge');
