@@ -21,7 +21,7 @@ class SpecialPurgeThumb extends \FormSpecialPage {
     
     protected function getFormFields() {
         $fileList = array( $this->title->getDBKey() );
-        $images = \RepoGroup::singleton()->findFiles( $fileList );
+        $images = MediaWikiServices::getInstance()->getRepoGroup()->findFiles( $fileList );
         $urls = Utils::getThumbnailsURL( array_shift( $images ) );
         
         $options = [];
